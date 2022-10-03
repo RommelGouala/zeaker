@@ -2,7 +2,7 @@ import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 import './App.css';
 import { Earth } from './Components/Earth/earth';
-// import Navbarr from './Components/Navbar/Navbar';
+import Navbarr from './Components/Navbar/Navbar';
 
 
 
@@ -16,7 +16,7 @@ function App() {
         <Earth/>
         </Suspense>
       </Canvas>
-      
+      <Navbarr/>
       </div>
   );
 }
