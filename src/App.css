@@ -1,38 +1,39 @@
-.App {
+/* .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+#background{
+  background: rgb(2,0,36);
+  background: linear-gradient(130deg, rgba(2,0,36,1) 24%,rgb(11, 10, 62) 40%, rgba(0,212,255,1) 80%, rgba(107, 28, 172) 100%);
+  width: 100vw;
+  height: 100vh;
+} */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* #background{
+  background: rgb(2,0,36);
+  background: linear-gradient(130deg, rgba(2,0,36,1) 35%,rgb(11, 10, 62) 25%, rgba(0,212,255,1) 80%, rgba(107, 28, 172) 100%);
+  width: 100vw;
+  height: 100vh;
+} */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
+/* #background{
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(150,77,134,1) 35%, rgba(0,212,255,1) 100%);
+  width: 100vw;
+  height: 100vh;
+} */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* #animationContainer{
+  width: 20vw;
+  height: 20vh;
+  position: absolute;
+  margin-left: 50vw;
+  margin-top: 50vh;
+
+} */
+
+#CanvasContainer{
+  width: 100%;
+  height: 100%;
 }

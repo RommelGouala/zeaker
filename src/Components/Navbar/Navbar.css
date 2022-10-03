@@ -1,0 +1,15 @@
+#TheNav{
+   color: aliceblue;
+   font-size: 1.3em;
+   font-weight: 400;
+   text-decoration: none solid rgb(255, 255, 255);
+   font-family: Arial, Helvetica, sans-serif ;
+   background: rgb(2,0,36);
+   background: linear-gradient(130deg, rgba(2,0,36,1) 24%,rgb(11, 10, 62) 40%, rgba(0,212,255,1) 80%, rgba(107, 28, 172) 100%);
+}
+
+   #CnidiriaLogo{
+      height: 7vh;
+      align-items: center;
+      clip-path: circle();
+  }
