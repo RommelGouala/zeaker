@@ -5,7 +5,7 @@
    text-decoration: none solid rgb(255, 255, 255);
    font-family: Arial, Helvetica, sans-serif ;
    background: rgb(2,0,36);
-   background: linear-gradient(130deg, rgba(2,0,36,1) 24%,rgb(11, 10, 62) 40%, rgba(0,212,255,1) 80%, rgba(107, 28, 172) 100%);
+   background: linear-gradient(130deg, rgba(2,0,36,1) 24%,rgb(11, 10, 62) 40%,  80%, rgba(107, 28, 172) 100%);
 }
 
    #CnidiriaLogo{
@@ -13,3 +13,27 @@
       align-items: center;
       clip-path: circle();
   }
+
+/* 
+Link navbar P tag  */
+
+  .Link_nav_p {
+   color: whitesmoke;
+   display: inline-block;
+   margin: 0;
+   text-transform: uppercase;
+   background-color: transparent;
+}
+
+/* After Hover */
+.Link_nav_p:after {
+   display: block;
+   content: '';
+   border-bottom: solid 3px whitesmoke;
+   transform: scaleX(0);
+   transition: transform 250ms ease-in-out;
+}
+
+.Link_nav_p:hover:after {
+   transform: scaleX(1);
+}
