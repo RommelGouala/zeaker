@@ -1,5 +1,5 @@
 import "./signLoging.css";
-import CnidiriaLogo from "../Navbar/faviconCnidiria.jpeg";
+import CnidiriaLogo from "../Navbar/faviconCnidiriaMain1.jpg";
 import Navbarr from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 
