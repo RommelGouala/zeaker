@@ -1,9 +1,44 @@
 import './signUp.css'
 import Navbarr from '../Navbar/Navbar'
+import axios from 'axios'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
-    return (
+    const [data, setData] = useState({
+		firstName: "",
+		lastName: "",
+		email: "",
+		password: "",
+	});
+	const [error, setError] = useState("");
+	const navigate = useNavigate();
 
+	const handleChange = ({ currentTarget: input }) => {
+		setData({ ...data, [input.name]: input.value });
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const url = process.env.REACT_APP_SERVER_URL
+			const { data: res } = await axios.post(url, data);
+			navigate("/login");
+			console.log(res.message);
+		} catch (error) {
+			if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
+				setError(error.response.data.message);
+			}
+		}
+	};
+   
+   
+    return (
+        
         <>
         <Navbarr/>
         <section className="background-radial-gradient overflow-hidden">
