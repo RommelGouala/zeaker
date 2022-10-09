@@ -1,51 +1,70 @@
 import "./signLoging.css";
 import CnidiriaLogo from "../Navbar/faviconCnidiriaMain1.jpg";
 import Navbarr from "../Navbar/Navbar";
-import { Link, resolvePath } from "react-router-dom";
-import { useState } from "react";
+import { Link, resolvePath, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-import { setAuthToken } from "../../helpers/setAuthToken";
 
-import axios from 'axios'
 
 export default function Signing() {  
-
-
+const [token, setToken] = useState(null)
+const navigate = useNavigate()
 
 const [data, setData] = useState({
   name: "",
   password: ""
 });
 
+// useEffect(() =>{
+//   const fetchToken = async () =>{
+//     const url = process.env.REACT_APP_SERVER_URL + '/user/login'
+//     const response = await fetch(url, {
+//         method: 'POST',
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     })
+//     console.log('We are here', response.json())
+//   }
+
+//   fetchToken()
+// },[])
 
 const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
 };
 
 
-const handleSubmit = (email, password) => {
-  //reqres registered sample user
+const handleSubmit = async (e) =>{
+  e.preventDefault();
   const url = process.env.REACT_APP_SERVER_URL + '/user/login'
+  console.log('This is Url', url)
+  const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+  })
 
-  axios.post(url, data)
-    .then(response => {
-      //get token from response
-      const token = response.data.token;
+  const resData = await response.json()
+  console.log('We are here', response)
+  if (!resData) {
+      console.log('No Data')
+  } else {
+      // navigate('/home', { replace:true })
+     localStorage.setItem('token', resData.token)
+     localStorage.setItem('id', resData.id)
+     console.log("This is it",resData)
+  }
+}
 
-      //set JWT token to local
-      localStorage.setItem("token", token);
 
-      //set token to axios common header
-      setAuthToken(token);
 
-      //redirect user to home page
-      window.location.href = '/'
-      console.log(response.data)
-
-    })
-    .catch(err => console.log(err));
-};
-
+console.log(token)
 
   return (
     <>
@@ -78,7 +97,7 @@ const handleSubmit = (email, password) => {
                         <h5 className="fw-normal mb-3 pb-3" id="text_One">
                           Sign into your account
                         </h5>
-                          <form>
+                          <div>
                         <div className="form-outline mb-4">
                           <input
                             type="text"
@@ -120,7 +139,7 @@ const handleSubmit = (email, password) => {
                           </button>
                           
                         </div>
-                        </form>
+                        </div>
                       
                         <p className="mb-5 pb-lg-2">
                           Don't have an account? <Link to='/signup'>Register here</Link>

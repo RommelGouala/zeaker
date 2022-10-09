@@ -98,8 +98,8 @@ export default function SignUp() {
                                 
                                         <select name="role" id="pet-select" className='form-select' onChange={handleChange} value={data.role}>
                                             <option value="">--Please choose a Role--</option>
-                                            <option value="dog">Poster</option>
-                                            <option value="cat">Zeaker</option>
+                                            <option value="Poster">Poster</option>
+                                            <option value="Zeaker">Zeaker</option>
                                         </select>
                                         <label className="form-label" for="form3Example6">Role</label>
                                         

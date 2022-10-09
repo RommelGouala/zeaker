@@ -11,22 +11,24 @@
 
 import Navbarr from "../Navbar/Navbar"
 import './postJob.css'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 
 
 
 export default function PostJob() {
+   const userId = localStorage.getItem('id')
+   
     const INITIAL_STATE = {
-        Id: '',
         title: '',
         desc: '',
         date: '',
         timeframe: '',
         location: '',
         jobType: '',
-        postOwner: ''
+        postOwner: userId,
+        budget:''
     }
 
     const [data, setData] = useState(INITIAL_STATE)
@@ -38,12 +40,15 @@ export default function PostJob() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const token = localStorage.getItem("token");
+
         const Url = process.env.REACT_APP_SERVER_URL + '/index/'
         const response = await fetch(`${Url}`, {
             method: 'POST',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                // 'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': token
             },
             body: JSON.stringify(data)
         })
@@ -55,6 +60,29 @@ export default function PostJob() {
         }
     }
 
+    // useEffect(() =>{
+
+    //     const fetchData = async () => {
+    //         const token = localStorage.getItem("token");
+
+    //     const Url = process.env.REACT_APP_SERVER_URL + '/index/user'
+    //     const response = await fetch(`${Url}`, {
+    //         method: 'GET',
+    //         headers: {
+    //             // 'Accept': 'application/json',
+    //             'Content-Type': 'application/json',
+    //             'Authorization': token
+    //         },
+    //         body: JSON.stringify(data)
+    //     })
+    //       }
+        
+    //       // call the function
+    //       fetchData()
+    //         // make sure to catch any error
+    //         .catch(console.error);
+    // },[])
+
     return (
         <>
             <Navbarr />
@@ -62,8 +90,6 @@ export default function PostJob() {
                 <section id="Section_O_NewEntry">
                     <form onSubmit={handleSubmit} id="form_NE">
                         <h1> Get Finance </h1>
-                        <label className="labels">Job ID:</label>
-                        <input onChange={handleChange} required name='id' type='number' placeholder='Job ID' value={data.id} />
                         <label className="labels"> Job Title</label>
                         <input onChange={handleChange} name='title' type='text' placeholder='Job Title' value={data.title} className='form-input'/>
                         <label className="labels">Location</label>
@@ -71,20 +97,19 @@ export default function PostJob() {
                         <label className="labels">Date</label>
                         <input onChange={handleChange} required name='date' type='date' placeholder='Date' value={data.date} />
 
-                        <label className="labels">Time Frame:</label>
-                        <input onChange={handleChange} required name='date' type='datetime-local' placeholder='time frame' value={data.timeframe} />
+                        <label className="labels">Time Frame: (In days)</label>
+                        <input onChange={handleChange} required name='timeframe' type='number' placeholder='time frame' value={data.timeframe} />
                         <label className="labels">Job Description:</label>
                         <input onChange={handleChange} required name='desc' type='text' placeholder='description' value={data.desc}/>
-                        <label className="labels">Job Type</label>
-                        <input onChange={handleChange} name='jobType' type='text' placeholder='Job Type' value={data.jobType} required />
 
-                        <select className="custom-select">
-                            <option selected>job Type</option>
-                            <option value="1">remote</option>
-                            <option value="2">onsite</option>
-                            <option value="3">hybrid</option>
+                        <select className="custom-select" value={data.jobType} onChange={handleChange} name='jobType' type='text' required >
+
+                            <option value="">--Please choose a Job Type--</option>
+                                            <option value="remote">remote</option>
+                                            <option value="onsite">onsite</option>
+                                            <option value="onsite">onsite</option>
                         </select>
-                        <button type='submit'>Submit New Entry</button>
+                        <button type='submit'>Submit Job</button>
                     </form>
                 </section>
             </div>

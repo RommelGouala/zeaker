@@ -24,7 +24,7 @@ createRoot(document.getElementById("root")).render(
     <Suspense fallback={null}>
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<App />}/>
+        <Route path="/" element={<App />}/>
         <Route path="/signing" element={<Sign/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/posts" element={ <Jobpost/>}/>
@@ -32,7 +32,7 @@ createRoot(document.getElementById("root")).render(
         <Route path='/jobfeed/:id' element={<JobDetails/>}/>
         {user && <Route path="/user/all" exact element={<UserJobfeed/>} />}
         {user && <Route path="/user/:id" exact element={<SingleUserFeed/>} />}
-        {user && <Route path="/user/:id/edit" exact element={<EditUserFeed/>} />}
+        {user && <Route path="/index/:id" exact element={<EditUserFeed/>} />}
       </Routes>
     </BrowserRouter>
     </Suspense>

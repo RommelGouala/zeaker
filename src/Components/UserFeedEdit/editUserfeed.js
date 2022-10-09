@@ -1,8 +1,9 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import Navbars from "../Navbar_f/Navbar";
-import './Edit.css'
+import Navbarr from '../Navbar/Navbar'
+// import Navbarr from "../Navbar_f/Navbar";
+// import './Edit.css'
 
 
 export default function EditUserFeed() {
@@ -29,7 +30,7 @@ const [postOwner, setPostOwner] = useState('')
             timeframe,
             location,
             jobType,
-            postOwner
+            postOwner: ''
         }).then(response => console.log('Data Posted', response)).catch(err => console.log(err))
         navigate('/user/all', { replace:true })
     }
@@ -37,7 +38,7 @@ const [postOwner, setPostOwner] = useState('')
     return (
 
         <div className='The_Edit'>
-            <Navbars />
+            <Navbarr />
             <section id="Section_O_Edit">
                 <form id="form_Edit">
                     

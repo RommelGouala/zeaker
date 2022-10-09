@@ -13,9 +13,9 @@ function Navbarr() {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                 <Nav className="me-auto">
-                    <Nav.Link><Link to='/home'> <p className="Link_nav_p">HOME</p></Link> </Nav.Link>
+                    <Nav.Link><Link to='/'> <p className="Link_nav_p">HOME</p></Link> </Nav.Link>
                     <Nav.Link><Link to='/signing'><p className="Link_nav_p">Careers</p></Link> </Nav.Link>
-                    <Nav.Link><Link to='/signing'><p className="Link_nav_p">About</p></Link> </Nav.Link>
+                    <Nav.Link><Link to='/About'><p className="Link_nav_p">About</p></Link> </Nav.Link>
                     <Nav.Link><Link to='/contact'> <p className="Link_nav_p">Contact</p></Link> </Nav.Link>
                     <Nav.Link><Link to='/posts'> <p className="Link_nav_p">Post Job</p></Link> </Nav.Link>
                     <Nav.Link><Link to='/jobfeed'> <p className="Link_nav_p">Job feed</p></Link> </Nav.Link>
