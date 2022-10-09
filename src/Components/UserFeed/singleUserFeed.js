@@ -8,10 +8,10 @@ import './JobDetails.css'
 
 
 
-export default function JobDetails(){
+export default function SingleUserFeed(){
     const { id } = useParams();
     const [job_details, setjobDetails] = useState(null)
-    const Url = process.env.REACT_APP_SERVER_URL + `/index/${id}`
+    const Url = process.env.REACT_APP_SERVER_URL + `/user/${id}`
     const navigate = useNavigate()
    
     useEffect(() => {
@@ -23,6 +23,19 @@ export default function JobDetails(){
 
     console.log(job_details)
    
+    const handleEdit = () => {
+        navigate(`/user/${job_details.id}/edit`, { replace: true })
+    }
+
+
+    const handleDelete = async () => {
+        await fetch(Url, {
+            method: 'DELETE'
+        })
+        navigate('/user/all', { replace: true })
+    }
+
+
     const content = job_details && (
         <div className="The_JobDetails">
 
@@ -36,9 +49,9 @@ export default function JobDetails(){
             <p>Description: {job_details.description}</p>
             <p>Budget {job_details.budget}</p>
             <br />
-            {/* <button className="The_button" >Edit Job</button>
+            <button className="The_button" onClick={handleEdit}>Edit Job</button>
             <br />
-            <button className="The_button" >Delete Job</button> */}
+            <button className="The_button" onClick={handleDelete}>Delete Job</button>
 
 
         </div>
@@ -48,7 +61,7 @@ export default function JobDetails(){
     return(
         <>
         <Navbarr/>
-        <h1>Details</h1>
+        <h1>User Details Job Feeds</h1>
         {content}
         </>
     )

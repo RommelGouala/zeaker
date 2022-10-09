@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom"
 
 export default function PostJob() {
     const INITIAL_STATE = {
-        ID: '',
+        Id: '',
         title: '',
         desc: '',
         date: '',
@@ -65,7 +65,7 @@ export default function PostJob() {
                         <label className="labels">Job ID:</label>
                         <input onChange={handleChange} required name='id' type='number' placeholder='Job ID' value={data.id} />
                         <label className="labels"> Job Title</label>
-                        <input onChange={handleChange} name='title' type='text' placeholder='Job Title' value={data.title} />
+                        <input onChange={handleChange} name='title' type='text' placeholder='Job Title' value={data.title} className='form-input'/>
                         <label className="labels">Location</label>
                         <input onChange={handleChange} required name='location' type='text' placeholder='City, State/Country' value={data.location} />
                         <label className="labels">Date</label>
@@ -74,11 +74,9 @@ export default function PostJob() {
                         <label className="labels">Time Frame:</label>
                         <input onChange={handleChange} required name='date' type='datetime-local' placeholder='time frame' value={data.timeframe} />
                         <label className="labels">Job Description:</label>
-                        <input onChange={handleChange} required name='description' type='text' placeholder='description' value={data.desc}/>
+                        <input onChange={handleChange} required name='desc' type='text' placeholder='description' value={data.desc}/>
                         <label className="labels">Job Type</label>
-                        <input onChange={handleChange} name='type' type='text' placeholder='Job Type' value={data.jobType} required />
-
-
+                        <input onChange={handleChange} name='jobType' type='text' placeholder='Job Type' value={data.jobType} required />
 
                         <select className="custom-select">
                             <option selected>job Type</option>

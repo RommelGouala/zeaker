@@ -1,37 +1,50 @@
 import "./signLoging.css";
 import CnidiriaLogo from "../Navbar/faviconCnidiriaMain1.jpg";
 import Navbarr from "../Navbar/Navbar";
-import { Link } from "react-router-dom";
+import { Link, resolvePath } from "react-router-dom";
 import { useState } from "react";
+
+import { setAuthToken } from "../../helpers/setAuthToken";
+
 import axios from 'axios'
 
+export default function Signing() {  
 
-export default function Signing() {
 
-  const [data, setData] = useState({ email: "", password: "" });
-	const [error, setError] = useState("");
 
-	const handleChange = ({ currentTarget: input }) => {
-		setData({ ...data, [input.name]: input.value });
-	};
+const [data, setData] = useState({
+  name: "",
+  password: ""
+});
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		try {
-			const url = process.env.REACT_APP_SERVER_URL
-			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data);
-			window.location = "/";
-		} catch (error) {
-			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
-			) {
-				setError(error.response.data.message);
-			}
-		}
-	};
+
+const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+};
+
+
+const handleSubmit = (email, password) => {
+  //reqres registered sample user
+  const url = process.env.REACT_APP_SERVER_URL + '/user/login'
+
+  axios.post(url, data)
+    .then(response => {
+      //get token from response
+      const token = response.data.token;
+
+      //set JWT token to local
+      localStorage.setItem("token", token);
+
+      //set token to axios common header
+      setAuthToken(token);
+
+      //redirect user to home page
+      window.location.href = '/'
+      console.log(response.data)
+
+    })
+    .catch(err => console.log(err));
+};
 
 
   return (
@@ -53,7 +66,7 @@ export default function Signing() {
                   </div>
                   <div className="col-md-6 col-lg-7 d-flex align-items-center">
                     <div className="card-body p-4 p-lg-5 text-black">
-                      <form>
+                      <form onSubmit={handleSubmit}>
                         <div className="d-flex align-items-center mb-3 pb-1">
                           <i
                             className="fas fa-cubes fa-2x me-3"
@@ -65,16 +78,20 @@ export default function Signing() {
                         <h5 className="fw-normal mb-3 pb-3" id="text_One">
                           Sign into your account
                         </h5>
-                          <form onSubmit={handleSubmit}>
+                          <form>
                         <div className="form-outline mb-4">
                           <input
-                            type="email"
+                            type="text"
                             id="form2Example17"
                             className="form-control form-control-lg"
                             onChange={handleChange}
+                            value={data.name}
+                            name='name'
+                            required
+
                           />
                           <label className="form-label" for="form2Example17">
-                            Email address
+                            Name
                           </label>
                         </div>
 
@@ -84,6 +101,9 @@ export default function Signing() {
                             id="form2Example27"
                             className="form-control form-control-lg"
                             onChange={handleChange}
+                            name='password'
+                            value={data.password}
+                            required
                           />
                           <label className="form-label" for="form2Example27">
                             Password
@@ -93,7 +113,7 @@ export default function Signing() {
                         <div className="pt-1 mb-4">
                           <button
                             className="btn btn-dark btn-lg btn-block"
-                            type="button"
+                            type="submit"
                           >
                             
                             Login
@@ -120,6 +140,7 @@ export default function Signing() {
           </div>
         </div>
       </section>
+
     </>
   );
 }
