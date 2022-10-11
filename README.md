@@ -1,3 +1,71 @@
+Readme File for Zeaker:
+
+Table of Contents:
+Project- Page 1
+Project Description- Page 1
+How to Use the Project- Page 2
+Credits- Page 2
+Getting Started with React - Page 3
+
+
+Project:
+ 
+Zeaker is an online platform that allows freelance Software Developers to find paid jobs for the BSV blockchain. It also allows other creators to post jobs so that the two parties can meet and achieve their goals. 
+
+Project Description:
+
+Basically, Zeaker is a platform for seeking out people. More specifically, it is both for people that need help to build on the BSV blockchain and for people seeking independent work on the web. 
+
+It allows for creators to create a posting account, so they can post jobs or duties that they need completed and it allows web developers to create an account to look at the post/jobs made by creators so that they can fill that need or employment position. 
+
+For many people, a main goal in life is to find freedom. This app allows people to free themselves from the current monotony of daily employment. In achieving this goal, we believe people will be happier and thus produce better quality work. Our motto is: “At play, we produce better, period”. As the backbone of technological society, developers need to be able to create anywhere they are happiest: on the beach, in the woods, in the mountains, in solitude or near family, and the list goes on. Wherever the creating power of the developer can get harnessed best is where the highest quality of work will be achieved. 
+
+For example, when you go out to eat and the staff is in a bad mood, the food quality will seem lacking. However, if you go somewhere where the staff has synergy and people are having a good time, the food quality will seem great. 
+
+At school, if a teacher is burnt out and has no love or sympathy for the students, the students’ energy will reciprocate that of the classroom's ambiance, and they will not produce as best that they can. However, if your room is like that of Ms. Frizzle’s from the Magic School Bus, where there is a palpable joy in teaching, students will actively engage and perform at their best. 
+
+For the employer, the goal is to have happy developers that can work from anywhere in the world while simultaneously saving on the costs associated with leasing or buying office space and supplies, utilities, insurance, etc. 
+
+How to Use the Project:]
+
+	For Developer-
+Find website: zeaker.xyz
+Make user account
+Look for jobs
+Find job
+Make request for job
+Wait for job approval
+Finish job
+Get paid from escrow third party account
+	
+	For Creator-
+Find website: zeaker.io
+Make user account 
+Post jobs
+Wait for response
+Pic willing developer
+Get product
+Approve product
+Pay Dev tru third party escrow account
+
+Credits:
+
+Vaerie Haupt= Fullstack engineer, lead Architect of back-end. 
+
+Rommel Gouala= Fullstack engineer, lead Architect of the front-end.
+
+Hans Nielsen= Fullstack engineer, Backend extraordinaire.
+
+Jorge Ivan Ramirez-Franco= Fullstack engineer, Front-end aide. CEO of Cnidiria, co-Founder of Zeaker, CEO at Lazarus, Head Distributor of dreams at Heart of the Heart Foundation 
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
