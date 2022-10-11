@@ -120,18 +120,18 @@ const [location, setLocation] = useState('')
 
   {/* <!-- Text input --> */}
   <div className="form-outline mb-4">
-  <input onChange={handleChange} required name='timeframe' id="timeframe"  type='number' placeholder='Time Frame in days' value={data.timeframe} className='form-control'/>
+  <input onChange={handleChange} required name='timeframe' id="timeframe"  type='number' placeholder='time frame' value={data.timeframe} className='form-control'/>
     <label className="form-label" for="form6Example4">Time Frame</label>
   </div>
   {/* <!-- Number input --> */}
   <div className="form-outline mb-4">
-  <input onChange={handleChange} required name='budget' id="budget"  type='number' placeholder='Budget' value={data.budget} className='form-control'/>
+  <input onChange={handleChange} required name='budget' id="budget"  type='number' placeholder='description' value={data.budget} className='form-control'/>
     <label className="form-label" for="budget">Budget</label>
   </div>
 
   {/* <!-- Email input --> */}
   <div className="form-outline mb-4">
-  <input onChange={handleChange} required name='desc' id="desc"  type='text' placeholder='Description' value={data.desc} className='form-control' rows="4"/>
+  <input onChange={handleChange} required name='desc' id="desc"  type='text' placeholder='description' value={data.desc} className='form-control' rows="4"/>
     <label className="form-label" for="desc">Description</label>
   </div>
 
@@ -142,13 +142,13 @@ const [location, setLocation] = useState('')
 <option value="">--Please choose a Job Type--</option>
                 <option value="remote">remote</option>
                 <option value="onsite">onsite</option>
-                <option value="onsite">Hybrid</option>
+                <option value="onsite">onsite</option>
 </select>
 
   </div>
 
   {/* <!-- Submit button --> */}
-  <button type="submit" className="btn btn-primary btn-block mb-4"> Submit</button>
+  <button type="submit" className="btn btn-primary btn-block mb-4"> Submit Job</button>
 </form>
                
 

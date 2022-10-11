@@ -38,6 +38,10 @@
     backdrop-filter: saturate(200%) blur(25px);
 }
 
+.bg-glass label{
+    color: black;
+}
+
 
 
 #col_div {
@@ -55,3 +59,4 @@
 #p_color {
     color: hsl(218, 81%, 85%)
 }
+

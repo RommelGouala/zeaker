@@ -1,13 +1,13 @@
 import "./signLoging.css";
 import CnidiriaLogo from "../Navbar/faviconCnidiriaMain1.jpg";
 import Navbarr from "../Navbar/Navbar";
-import { Link, resolvePath, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 
 
 export default function Signing() {  
-const [token, setToken] = useState(null)
+
 const navigate = useNavigate()
 
 const [data, setData] = useState({
@@ -15,22 +15,7 @@ const [data, setData] = useState({
   password: ""
 });
 
-// useEffect(() =>{
-//   const fetchToken = async () =>{
-//     const url = process.env.REACT_APP_SERVER_URL + '/user/login'
-//     const response = await fetch(url, {
-//         method: 'POST',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(data)
-//     })
-//     console.log('We are here', response.json())
-//   }
 
-//   fetchToken()
-// },[])
 
 const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -59,12 +44,12 @@ const handleSubmit = async (e) =>{
      localStorage.setItem('token', resData.token)
      localStorage.setItem('id', resData.id)
      console.log("This is it",resData)
+     navigate('/', { replace:true })
   }
 }
 
 
 
-console.log(token)
 
   return (
     <>

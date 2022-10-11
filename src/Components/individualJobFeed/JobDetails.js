@@ -13,16 +13,35 @@ export default function JobDetails(){
     const [job_details, setjobDetails] = useState(null)
     const Url = process.env.REACT_APP_SERVER_URL + `/index/${id}`
     const navigate = useNavigate()
-   
+    const [postOnerResponse, setPostOwnerResponse] = useState(null)
+    
     useEffect(() => {
         axios.get(Url, { headers: { 'Access-Control-Allow-Origin': '*' } })
             .then(response => {
                 setjobDetails(response.data)
+                setPostOwnerResponse(response.data.postOwner)
             })
     }, [Url])
 
-    console.log(job_details)
+    const handleEdit = () => {
+        navigate(`/index/${id}`, { replace: true })
+    }
+
+    const handleDelete = async () => {
+        const token = localStorage.getItem("token")
+        await fetch(Url, {
+            method: 'DELETE',
+            headers: {
+                // 'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': token
+            }
+        })
+        navigate('/jobfeed', { replace: true })
+    }
    
+    const userId = localStorage.getItem("id");
+
     const content = job_details && (
         <div className="The_JobDetails">
 
@@ -36,9 +55,13 @@ export default function JobDetails(){
             <p>Description: {job_details.description}</p>
             <p>Budget {job_details.budget}</p>
             <br />
-            {/* <button className="The_button" >Edit Job</button>
-            <br />
-            <button className="The_button" >Delete Job</button> */}
+            { postOnerResponse === userId &&
+            <>
+            <button className="The_button" onClick={handleEdit}>Edit Entry</button>
+            <br/>
+            <button className="The_button" onClick={handleDelete}>Delete Entry</button>
+            </>
+            }
 
 
         </div>
