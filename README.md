@@ -39,7 +39,7 @@ Finish job
 Get paid from escrow third party account
 	
 	For Creator-
-Find website: zeaker.io
+Find website: zeaker.xyz
 Make user account 
 Post jobs
 Wait for response
