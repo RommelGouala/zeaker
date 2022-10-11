@@ -29,12 +29,12 @@ export default function Jobfeed(){
 
     localStorage.setItem("OwnerP", postOwnerRes )
 
-console.log(postOwnerRes)
+
 
     if (Jobfeeds) {
         content = Jobfeeds.map(Jobfeed => {
             return (
-                <Card style={{ width: '18rem' }} key={Jobfeed.id}>
+                <Card style={{ width: '18rem' }} key={Jobfeed._id}>
                     <Card.Img className="Carousel_img" variant="top" src={Jobfeed.image} />
                     <Card.Body>
                         <Card.Title>{Jobfeed.title}</Card.Title>
@@ -51,7 +51,7 @@ console.log(postOwnerRes)
                     </ListGroup>
                     <Card.Body>
                     <Link to={`/jobfeed/${Jobfeed._id}`}>
-                        <Button variant="primary">Job infromation</Button>
+                        <Button variant="primary">Job information</Button>
                     </Link> 
                     </Card.Body>
                 </Card>

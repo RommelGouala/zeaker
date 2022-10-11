@@ -47,10 +47,10 @@ export default function PostJob() {
             body: JSON.stringify(data)
         })
 
-        if (response.status !== 200) {
+        if (response.status !== 201) {
 
         } else {
-            navigate('/', { replace: true })
+            navigate('/jobfeed', { replace: true })
 
         }
     }
