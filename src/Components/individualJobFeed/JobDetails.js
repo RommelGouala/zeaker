@@ -52,7 +52,7 @@ export default function JobDetails(){
             <br />
             <p>Location : {job_details.location}</p>
             <p>Discovery Date: {job_details.date}</p>
-            <p>Description: {job_details.description}</p>
+            <p>Description: {job_details.desc}</p>
             <p>Budget {job_details.budget}</p>
             <br />
             { postOnerResponse === userId &&

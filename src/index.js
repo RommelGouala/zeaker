@@ -29,7 +29,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/signing" element={<Sign/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         {userToken &&   <Route path="/posts" exact element={ <Jobpost/>}/>}
-        <Route path='/jobfeed' exact element={<Jobfeed/>}/>
+        <Route path='/jobfeed' element={<Jobfeed/>}/>
         <Route path='/jobfeed/:id' element={<JobDetails/>}/>
         {userToken && <Route path="/index/:id" exact element={<EditUserFeed/>} />}
         <Route path="/about" element={<About/>}/>
