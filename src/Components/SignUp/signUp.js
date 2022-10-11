@@ -103,10 +103,10 @@ export default function SignUp() {
                                         </select>
                                         <label className="form-label" for="form3Example6">Role</label>
                                         
-
+                                        
                                         {/* Phone */}
                                         <div className="form-outline mb-4">
-                                            <input type="number" id="form3Example6" className="form-control" name='phone' onChange={handleChange} value={data.phone} />
+                                            <input type="number" maxLength={10} id="form3Example6" className="form-control" name='phone' onChange={handleChange} value={data.phone} />
                                             <label className="form-label" for="form3Example6">Phone</label>
                                         </div>
 

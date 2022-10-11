@@ -4,15 +4,12 @@ import './App.css';
 import { Earth } from './Components/Earth/earth';
 import Navbarr from './Components/Navbar/Navbar';
 
-import { setAuthToken } from './helpers/setAuthToken';
 
 
 
 function App() {
-  const token = localStorage.getItem("token");
-  if (token) {
-      setAuthToken(token);
-  }
+
+
   
   
   

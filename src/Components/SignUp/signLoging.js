@@ -59,6 +59,7 @@ const handleSubmit = async (e) =>{
      localStorage.setItem('token', resData.token)
      localStorage.setItem('id', resData.id)
      console.log("This is it",resData)
+     navigate('/', { replace:true })
   }
 }
 
