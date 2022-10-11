@@ -3,7 +3,7 @@
 
 import Navbarr from "../Navbar/Navbar"
 import './postJob.css'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 
@@ -55,37 +55,37 @@ export default function PostJob() {
         }
     }
 
-    const [location, setLocation] = useState('')
+    // const [location, setLocation] = useState('')
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const fetchLocation = async () => {
-            let lat = 0
-            let long = 0
-            navigator.geolocation.getCurrentPosition((position) => {
-                lat = position.coords.latitude;
-                long = position.coords.longitude;
-            });
+    //     const fetchLocation = async () => {
+    //         let lat = 0
+    //         let long = 0
+    //         navigator.geolocation.getCurrentPosition((position) => {
+    //             lat = position.coords.latitude;
+    //             long = position.coords.longitude;
+    //         });
 
-            const UrlApi = `http://api.positionstack.com/v1/reverse?access_key=62e9f077047b2e11dd3bf8eb1abe8177&query=${lat},${long}`
-            const responseT = await fetch(`${UrlApi}`, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            })
-            setLocation(`${responseT.data[0].administrative_area}, ${responseT.data[0].region}`)
+    //         const UrlApi = `http://api.positionstack.com/v1/reverse?access_key=62e9f077047b2e11dd3bf8eb1abe8177&query=${lat},${long}`
+    //         const responseT = await fetch(`${UrlApi}`, {
+    //             method: 'GET',
+    //             headers: {
+    //                 'Accept': 'application/json',
+    //                 'Content-Type': 'application/json',
+    //             },
+    //         })
+    //         setLocation(`${responseT.data[0].administrative_area}, ${responseT.data[0].region}`)
 
-        }
+    //     }
 
-        // call the function
-        fetchLocation()
-            // make sure to catch any error
-            .catch(console.error);
-    }, [])
+    //     // call the function
+    //     fetchLocation()
+    //         // make sure to catch any error
+    //         .catch(console.error);
+    // }, [])
 
-    console.log(location)
+    // console.log(location)
 
     return (
         <>
@@ -106,7 +106,7 @@ export default function PostJob() {
                     </div>
                     <div className="col">
                         <div className="form-outline">
-                            <input onChange={handleChange} required id="location" name='location' type='text' placeholder={location} value={data.location} className='form-control' />
+                            <input onChange={handleChange} required id="location" name='location' type='text' placeholder='location' value={data.location} className='form-control' />
                             <label className="form-label" for="location">Location</label>
                         </div>
                     </div>

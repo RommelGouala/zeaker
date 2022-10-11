@@ -42,7 +42,7 @@ export default function SingleUserFeed(){
 
         
             <h2>Job title: {job_details.title}</h2>
-            <img src={job_details.image} alt='pic'></img>
+            {/* <img src={job_details.image} alt='pic'></img> */}
             <br />
             <p>Location : {job_details.location}</p>
             <p>Discovery Date: {job_details.date}</p>
