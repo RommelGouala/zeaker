@@ -12,7 +12,8 @@ import Jobpost from './Components/PostJob/postJob'
 import Jobfeed from "./Components/JobFeed/jobfeed"
 import JobDetails from "./Components/individualJobFeed/JobDetails"
 import EditUserFeed from "./Components/UserFeedEdit/editUserfeed"
-import LoadingAnimation from "./Components/LoadingAnimation/LoadingAnimation"
+import About from "./Components/About/about"
+
 
 
 
@@ -27,10 +28,11 @@ createRoot(document.getElementById("root")).render(
         <Route path="/" element={<App />}/>
         <Route path="/signing" element={<Sign/>}/>
         <Route path="/signup" element={<SignUp/>}/>
-        {userToken &&   <Route path="/posts" element={ <Jobpost/>}/>}
+        {userToken &&   <Route path="/posts" exact element={ <Jobpost/>}/>}
         <Route path='/jobfeed' element={<Jobfeed/>}/>
         <Route path='/jobfeed/:id' element={<JobDetails/>}/>
         {userToken && <Route path="/index/:id" exact element={<EditUserFeed/>} />}
+        <Route path="/about" element={<About/>}/>
       </Routes>
     </BrowserRouter>
     </Suspense>
