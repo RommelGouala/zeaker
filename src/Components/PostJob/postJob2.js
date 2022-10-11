@@ -1,12 +1,4 @@
-// ID (pkey)
-// title
-// desc
-// date
-// timeframe
-// location
-// jobtype = remote/onsite/hybrid
-// budget
-// post owner - link to user
+
 
 
 import Navbarr from "../Navbar/Navbar"
