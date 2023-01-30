@@ -61,7 +61,47 @@ Jorge Ivan Ramirez-Franco= Fullstack engineer, Front-end aide. CEO of Cnidiria, 
 
 
 
+## Installation
+ 
+The Repo is not public. But imagine how someone could install it if it was public.
 
+Clone the repository
+Copy code
+```bash
+git clone https://github.com/RommelGouala/zeaker.git
+```
+Install dependencies
+Copy code
+```bash
+npm install
+```
+Start the development server
+Copy code
+
+```bash
+npm start
+```
+
+## Dockerfile
+
+| Docker                        |
+| ------------------------------|
+ ```bash
+FROM node:15.11.0-alpine
+
+WORKDIR /app
+
+COPY package.json .
+COPY package-lock.json .
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]                          
+```
 
 
 
