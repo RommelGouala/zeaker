@@ -94,7 +94,7 @@ const handleSubmit = async (e) =>{
                             required
 
                           />
-                          <label className="form-label" for="form2Example17">
+                          <label className="form-label">
                             Name
                           </label>
                         </div>
@@ -109,7 +109,7 @@ const handleSubmit = async (e) =>{
                             value={data.password}
                             required
                           />
-                          <label className="form-label" for="form2Example27">
+                          <label className="form-label">
                             Password
                           </label>
                         </div>

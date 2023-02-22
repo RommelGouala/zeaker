@@ -71,13 +71,13 @@ export default function SignUp() {
                                             <div className="col-md-6 mb-4">
                                                 <div className="form-outline">
                                                     <input type="text" id="form3Example1" className="form-control" name='firstName'  onChange={handleChange}/>
-                                                    <label className="form-label" for="form3Example1">First name</label>
+                                                    <label className="form-label" >First name</label>
                                                 </div>
                                             </div>
                                             <div className="col-md-6 mb-4">
                                                 <div className="form-outline">
                                                     <input type="text" id="form3Example2" className="form-control" name='name' onChange={handleChange} value={data.name} required />
-                                                    <label className="form-label" for="form3Example2">Last name</label>
+                                                    <label className="form-label" >Last name</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -85,13 +85,13 @@ export default function SignUp() {
                                         {/* Email input*/}
                                         <div className="form-outline mb-4">
                                             <input type="email" id="form3Example3" className="form-control" name='email' onChange={handleChange} value={data.email} required />
-                                            <label className="form-label" for="form3Example3">Email address</label>
+                                            <label className="form-label" >Email address</label>
                                         </div>
 
                                         {/* Password input  */}
                                         <div className="form-outline mb-4">
                                             <input type="password" id="form3Example4" className="form-control" name='password' onChange={handleChange} value={data.password} required />
-                                            <label className="form-label" for="form3Example4">Password</label>
+                                            <label className="form-label" >Password</label>
                                         </div>
 
                                         {/* Role */}
@@ -101,13 +101,13 @@ export default function SignUp() {
                                             <option value="Poster">Poster</option>
                                             <option value="Zeaker">Zeaker</option>
                                         </select>
-                                        <label className="form-label" for="form3Example6">Role</label>
+                                        <label className="form-label">Role</label>
                                         
                                         
                                         {/* Phone */}
                                         <div className="form-outline mb-4">
                                             <input type="number" maxLength={10} id="form3Example6" className="form-control" name='phone' onChange={handleChange} value={data.phone} />
-                                            <label className="form-label" for="form3Example6">Phone</label>
+                                            <label className="form-label">Phone</label>
                                         </div>
 
 
