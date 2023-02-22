@@ -19,8 +19,8 @@ export default function SignUp() {
         setData({ ...data, [e.target.name]: e.target.value });
     };
     
+    const url = process.env.REACT_APP_SERVER_URL + '/user/'
     const handleSubmit = async (e) =>{
-        const url = process.env.REACT_APP_SERVER_URL+'/user/'
         e.preventDefault();
 
         try {
