@@ -20,7 +20,7 @@ export default function SignUp() {
     };
     
     const handleSubmit = async (e) =>{
-        const url = process.env.REACT_APP_SERVER_URL + '/user/'
+        const url = process.env.REACT_APP_SERVER_URL+'/user/'
         e.preventDefault();
 
         try {
