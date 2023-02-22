@@ -23,8 +23,8 @@ const handleChange = (e) => {
 
 
 const handleSubmit = async (e) =>{
-  e.preventDefault();
   const url = process.env.REACT_APP_SERVER_URL + '/user/login'
+  e.preventDefault();
 
   const response = await fetch(url, {
       method: 'POST',
@@ -38,7 +38,7 @@ const handleSubmit = async (e) =>{
   const resData = await response.json()
  
   if (!resData) {
-  
+      console.log('No response')
   } else {
       // navigate('/home', { replace:true })
      localStorage.setItem('token', resData.token)
