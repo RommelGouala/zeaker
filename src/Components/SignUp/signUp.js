@@ -1,4 +1,5 @@
 import './signUp.css'
+import axios from 'axios';
 import Navbarr from '../Navbar/Navbar'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -22,19 +23,22 @@ export default function SignUp() {
         const url = process.env.REACT_APP_SERVER_URL + '/user/'
         e.preventDefault();
 
-        const response = await fetch(`${url}`, {
-            method: 'POST',
-            headers: {
+        try {
+            const response = await axios.post(url, data, {
+              headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        if (response.status !== 200) {
-            
-        } else {
-            navigate('/signing', { replace:true })
-        }
+              }
+            });
+            if (response.status !== 200) {
+              // handle error
+            } else {
+              navigate('/signing', { replace:true });
+            }
+          } catch (error) {
+            // handle error
+            console.log(error)
+          }
     }
 
 
