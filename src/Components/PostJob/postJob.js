@@ -55,37 +55,6 @@ export default function PostJob() {
         }
     }
 
-    // const [location, setLocation] = useState('')
-
-    // useEffect(() => {
-
-    //     const fetchLocation = async () => {
-    //         let lat = 0
-    //         let long = 0
-    //         navigator.geolocation.getCurrentPosition((position) => {
-    //             lat = position.coords.latitude;
-    //             long = position.coords.longitude;
-    //         });
-
-    //         const UrlApi = `http://api.positionstack.com/v1/reverse?access_key=62e9f077047b2e11dd3bf8eb1abe8177&query=${lat},${long}`
-    //         const responseT = await fetch(`${UrlApi}`, {
-    //             method: 'GET',
-    //             headers: {
-    //                 'Accept': 'application/json',
-    //                 'Content-Type': 'application/json',
-    //             },
-    //         })
-    //         setLocation(`${responseT.data[0].administrative_area}, ${responseT.data[0].region}`)
-
-    //     }
-
-    //     // call the function
-    //     fetchLocation()
-    //         // make sure to catch any error
-    //         .catch(console.error);
-    // }, [])
-
-    // console.log(location)
 
     return (
         <>
@@ -101,13 +70,13 @@ export default function PostJob() {
                     <div className="col">
                         <div className="form-outline">
                             <input onChange={handleChange} name='title' id="title" type='text' placeholder='Job Title' value={data.title} className='form-control' />
-                            <label className="form-label" for="title">Title</label>
+                            <label className="form-label" htmlFor="title">Title</label>
                         </div>
                     </div>
                     <div className="col">
                         <div className="form-outline">
                             <input onChange={handleChange} required id="location" name='location' type='text' placeholder='location' value={data.location} className='form-control' />
-                            <label className="form-label" for="location">Location</label>
+                            <label className="form-label" htmlFor="location">Location</label>
                         </div>
                     </div>
                 </div>
@@ -115,24 +84,24 @@ export default function PostJob() {
                 {/* <!-- Text input --> */}
                 <div className="form-outline mb-4">
                     <input onChange={handleChange} required name='date' id="date" type='date' placeholder='Date' value={data.date} className='form-control' />
-                    <label className="form-label" for="date">Date</label>
+                    <label className="form-label" htmlFor="date">Date</label>
                 </div>
 
                 {/* <!-- Text input --> */}
                 <div className="form-outline mb-4">
                     <input onChange={handleChange} required name='timeframe' id="timeframe" type='number' placeholder='Time Frame in days' value={data.timeframe} className='form-control' />
-                    <label className="form-label" for="form6Example4">Time Frame</label>
+                    <label className="form-label" htmlFor="form6Example4">Time Frame</label>
                 </div>
                 {/* <!-- Number input --> */}
                 <div className="form-outline mb-4">
                     <input onChange={handleChange} required name='budget' id="budget" type='number' placeholder='Budget' value={data.budget} className='form-control' />
-                    <label className="form-label" for="budget">Budget</label>
+                    <label className="form-label" htmlFor="budget">Budget</label>
                 </div>
 
                 {/* <!-- Email input --> */}
                 <div className="form-outline mb-4">
                     <input onChange={handleChange} required name='desc' id="desc" type='text' placeholder='Description' value={data.desc} className='form-control' rows="4" />
-                    <label className="form-label" for="desc">Description</label>
+                    <label className="form-label" htmlFor="desc">Description</label>
                 </div>
 
                 {/* <!-- Checkbox --> */}
@@ -142,7 +111,7 @@ export default function PostJob() {
                         <option value="">--Please choose a Job Type--</option>
                         <option value="remote">remote</option>
                         <option value="onsite">onsite</option>
-                        <option value="onsite">Hybrid</option>
+                        <option value="hybrid">hybrid</option>
                     </select>
 
                 </div>
