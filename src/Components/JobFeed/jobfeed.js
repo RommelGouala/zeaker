@@ -8,6 +8,7 @@ import './jobfeed.css'
 import { Link } from "react-router-dom";
 import Navbarr from '../Navbar/Navbar'
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation'
+import moment from 'moment'
 
 export default function Jobfeed(){
     const Url = process.env.REACT_APP_SERVER_URL + '/index/all'
@@ -45,7 +46,7 @@ export default function Jobfeed(){
                     <ListGroup className="list-group-flush">
 
                         <ListGroup.Item>Location: <br /> {Jobfeed.location}</ListGroup.Item>
-                        <ListGroup.Item>Date: <br /> {Jobfeed.date} <br /> </ListGroup.Item>
+                        <ListGroup.Item>Date: <br />{moment(Jobfeed.date).format('MMM DD, YYYY')} <br /> </ListGroup.Item>
                         <ListGroup.Item>Time Frame: <br /> {Jobfeed.timeframe} <br /> </ListGroup.Item>
                         
                     </ListGroup>
