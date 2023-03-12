@@ -12,7 +12,7 @@ const navigate = useNavigate()
 
 const [data, setData] = useState({
   name: "",
-  password: ""
+  password: "",
 });
 
 
@@ -20,7 +20,7 @@ const [data, setData] = useState({
 const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
 };
-
+console.log()
 
 const handleSubmit = async (e) =>{
   const url = process.env.REACT_APP_SERVER_URL + '/user/login'
@@ -39,11 +39,11 @@ const handleSubmit = async (e) =>{
  
   if (!resData) {
       console.log('No response')
-  } else {
-      // navigate('/home', { replace:true })
+  } else if(resData.token !== undefined) {
+
      localStorage.setItem('token', resData.token)
      localStorage.setItem('id', resData.id)
-     console.log("This is it",resData)
+    //  console.log("This is it",resData)
      navigate('/', { replace:true })
   }
 }
