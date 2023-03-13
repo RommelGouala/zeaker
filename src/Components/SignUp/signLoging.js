@@ -20,32 +20,41 @@ const [data, setData] = useState({
 const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
 };
-console.log()
+
+
+const [loginErrorMessage, setLoginErrorMessage] = useState('')
 
 const handleSubmit = async (e) =>{
   const url = process.env.REACT_APP_SERVER_URL + '/user/login'
   e.preventDefault();
 
+ try {
   const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-  })
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+})
 
-  const resData = await response.json()
+const resData = await response.json()
+
+if (resData.message === "User doesn't exist") {
+    setLoginErrorMessage('Wrong Last Name or Password')
+    return
+} else if(resData.token !== undefined) {
+
+  localStorage.setItem('token', resData.token)
+  localStorage.setItem('id', resData.id)
+  setLoginErrorMessage('')
+  navigate('/', { replace:true })
+}
+ } catch (error) {
+  console.log(error)
+ }
  
-  if (!resData) {
-      console.log('No response')
-  } else if(resData.token !== undefined) {
-
-     localStorage.setItem('token', resData.token)
-     localStorage.setItem('id', resData.id)
-    //  console.log("This is it",resData)
-     navigate('/', { replace:true })
-  }
+  
 }
 
 
@@ -83,6 +92,7 @@ const handleSubmit = async (e) =>{
                           Sign into your account
                         </h5>
                           <div>
+                          <p className='text-danger'>{loginErrorMessage}</p>
                         <div className="form-outline mb-4">
                           <input
                             type="text"
@@ -95,9 +105,10 @@ const handleSubmit = async (e) =>{
 
                           />
                           <label className="form-label">
-                            Name
+                            Last Name
                           </label>
                         </div>
+                        <p className='text-danger'>{loginErrorMessage}</p>
 
                         <div className="form-outline mb-4">
                           <input

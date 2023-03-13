@@ -17,11 +17,57 @@ export default function SignUp() {
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
+
+    const [naming, SetNaming] = useState('')
+    const [emailing, SetEmailing] = useState('')
+    const [passwording, SetPasswording] = useState('')
+    const [roling, SetRoling] = useState('')
+    const [phoning, SetPhoning] = useState('')
     
     const handleSubmit = async (e) =>{
         const url = process.env.REACT_APP_SERVER_URL + '/user/'
         e.preventDefault();
 
+        if(data.name.length < 3){
+            SetNaming('Please enter a valid name');
+            return;
+        }else{
+            SetNaming('')
+        }
+
+        if(data.email.length < 3){
+            SetEmailing('Email is too short')
+            return
+        } else if (!/\S+@\S+\.\S+/.test(data.email)){
+            SetEmailing('Please enter a valid email. E.g: joe@joe.com')
+            return
+        }else{
+            SetEmailing('')
+        }
+
+        if(!data.password || data.password.trim().length < 8){
+            SetPasswording('Password must be at least 8 characters')
+            return
+        }else{
+                SetPasswording('')
+        }
+
+        if(!data.role){
+            SetRoling('Please select a role')
+            return
+        }else{
+            SetRoling('')
+        }
+
+        if(!data.phone || data.phone.trim().length < 10){
+            SetPhoning('Enter a valid phone number. E.g: 1234567890')
+            return
+        }else{
+            SetPhoning('')
+        }
+    
+    
+        try {
         const response = await fetch(`${url}`, {
             method: 'POST',
             headers: {
@@ -35,6 +81,9 @@ export default function SignUp() {
         } else {
             navigate('/signing', { replace:true })
         }
+    } catch (error) {
+        
+    }
     }
 
 
@@ -70,30 +119,32 @@ export default function SignUp() {
                                         <div className="row">
                                             <div className="col-md-6 mb-4">
                                                 <div className="form-outline">
-                                                    <input type="text" id="form3Example1" className="form-control" name='firstName'  onChange={handleChange}/>
+                                                    <input type="text"  className="form-control" name='firstName'  onChange={handleChange}/>
                                                     <label className="form-label" >First name</label>
                                                 </div>
                                             </div>
                                             <div className="col-md-6 mb-4">
                                                 <div className="form-outline">
-                                                    <input type="text" id="form3Example2" className="form-control" name='name' onChange={handleChange} value={data.name} required />
+                                                    <input type="text"  className="form-control" name='name' onChange={handleChange} value={data.name} />
                                                     <label className="form-label" >Last name</label>
                                                 </div>
                                             </div>
+                                            <p className='text-danger'>{naming}</p>
                                         </div>
 
                                         {/* Email input*/}
                                         <div className="form-outline mb-4">
-                                            <input type="email" id="form3Example3" className="form-control" name='email' onChange={handleChange} value={data.email} required />
+                                            <input type="text" className="form-control" name='email' onChange={handleChange} value={data.email} />
                                             <label className="form-label" >Email address</label>
                                         </div>
+                                        <p className='text-danger'>{emailing}</p>
 
                                         {/* Password input  */}
                                         <div className="form-outline mb-4">
-                                            <input type="password" id="form3Example4" className="form-control" name='password' onChange={handleChange} value={data.password} required />
+                                            <input type="text"  className="form-control" name='password' onChange={handleChange} value={data.password} />
                                             <label className="form-label" >Password</label>
                                         </div>
-
+                                        <p className='text-danger'>{passwording}</p>
                                         {/* Role */}
                                 
                                         <select name="role" id="pet-select" className='form-select' onChange={handleChange} value={data.role}>
@@ -102,13 +153,14 @@ export default function SignUp() {
                                             <option value="Zeaker">Zeaker</option>
                                         </select>
                                         <label className="form-label">Role</label>
-                                        
+                                        <p className='text-danger'>{roling}</p>
                                         
                                         {/* Phone */}
                                         <div className="form-outline mb-4">
-                                            <input type="number" maxLength={10} id="form3Example6" className="form-control" name='phone' onChange={handleChange} value={data.phone} />
+                                            <input type="number" maxLength={10} className="form-control" name='phone' onChange={handleChange} value={data.phone} />
                                             <label className="form-label">Phone</label>
                                         </div>
+                                        <p className='text-danger'>{phoning}</p>
 
 
                                         {/* Submit button */}
