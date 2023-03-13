@@ -87,7 +87,7 @@ npm start
 | Docker                        |
 | ------------------------------|
  ```bash
-FROM node:15.11.0-alpine
+FROM node:19-alpine3.16
 
 WORKDIR /app
 
