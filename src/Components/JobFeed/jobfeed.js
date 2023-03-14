@@ -66,7 +66,7 @@ export default function Jobfeed(){
         <Navbarr/>
             <h1>Job feed</h1>
             <div className="Job_List_Container">
-                {isLoading ? <LoadingAnimation/>: content}
+                {isLoading ? <LoadingAnimation htext='Job Feed is Loading' /> : content}
             </div>
         </div>
     )
