@@ -1,6 +1,6 @@
 import './LoadingAnimation.css'
 
-export default function Main (){
+export default function Main ({htext}){
     return(
         <>
       
@@ -19,7 +19,7 @@ export default function Main (){
             <li><div></div></li>
             <li><div></div></li>
         </ul>
-        <h4>The Future is Zeaker</h4>
+        <h4>{htext}</h4>
     </div>
 
         </>
