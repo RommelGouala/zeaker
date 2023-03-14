@@ -44,6 +44,7 @@ export default function Signing() {
 
       if (resData.message === "User doesn't exist") {
         setLoginErrorMessage('Wrong Last Name or Password')
+        setIsLoading(false)
         return
       } else if (resData.token !== undefined) {
 
