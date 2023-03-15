@@ -15,9 +15,9 @@ function App() {
   
   return (
     <div id='CanvasContainer'>
-      <Canvas>
+      <Canvas data-cy="canvas">
         <Suspense fallback={null}>
-        <Earth/>
+        <Earth data-cy="earth-canvas"/>
         </Suspense>
       </Canvas>
       <Navbarr/>
